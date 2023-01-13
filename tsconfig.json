@@ -8,15 +8,14 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
-    "outDir": "lib"
+    "outDir": "./lib",
+    "declaration": true,
+    "target": "ESNext",
+    "moduleResolution": "Node"
   },
-  "include": ["src"],
+  "include": ["./src/**/*"],
   "exclude": [
     "node_modules"
   ]

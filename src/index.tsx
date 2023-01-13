@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect, Children, useCallback } from 'react';
+import React, { ReactNode, useState, useEffect, Children, useCallback, ReactElement } from 'react';
 import { Datagrid } from 'react-admin';
 import isEmpty from 'lodash/isEmpty';
 import filter from 'lodash/filter';
@@ -28,7 +28,7 @@ const CustomizableDatagrid = ({ children, defaultColumns, resource, ...rest }: P
     (columnName: string) => {
       setSelection((prevState) => ({
         ...prevState,
-        [columnName]: !prevState[columnName] ?? false,
+        [columnName]: !prevState[columnName] || false,
       }));
     },
     [selection],
@@ -52,7 +52,7 @@ const CustomizableDatagrid = ({ children, defaultColumns, resource, ...rest }: P
     const source = get(child, ['props', 'source']);
 
     if (!source || !selection[source]) {
-      return React.cloneElement(child, {});
+      return React.cloneElement(child as ReactElement, {});
     }
 
     return null;
@@ -76,7 +76,7 @@ const CustomizableDatagrid = ({ children, defaultColumns, resource, ...rest }: P
       return;
     }
 
-    setSelection(arrayToSelection(columnNames));
+    setSelection(arrayToSelection(columnNames || []));
   }, []);
 
   return (
@@ -94,7 +94,7 @@ const CustomizableDatagrid = ({ children, defaultColumns, resource, ...rest }: P
       {modalOpened && (
         <SelectionDialog
           selection={selection}
-          columns={getColumnLabels()}
+          columns={getColumnLabels() as Array<{ source: string; label: string }>}
           onColumnClicked={toggleColumn}
           onClose={() => setModalOpened(false)}
           resource={resource}
