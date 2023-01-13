@@ -1,0 +1,27 @@
+{
+  "name": "react-admin-customizable-datagrid",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "repository": "git@github.com:famoraes/ra-customizable-datagrid.git",
+  "author": "Fabiano Moraes <fabiano.moraes@outlook.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc ./src "
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.11.0",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-admin": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.191",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "eslint": "^8.31.0",
+    "eslint-plugin-react": "^7.32.0",
+    "prettier": "^2.8.2",
+    "typescript": "^4.9.4"
+  }
+}
